@@ -1,4 +1,4 @@
-# Projeto Controle de Cheque - Backend
+# Projeto Controle de Cheque - Backend 🚀
 <h2>Descrição</h2>
 O projeto Controle de Cheque - Backend é uma aplicação desenvolvida em Node.js com Express e Sequelize para gerenciar o cadastro de cheques, clientes, cálculos financeiros e fornecer um dashboard com informações resumidas. O backend está estruturado para realizar operações de CRUD (Create, Read, Update, Delete) e se comunica com um banco de dados MySQL.
 
@@ -65,3 +65,142 @@ Responsável por sincronizar as tabelas do banco de dados e estabelecer a conex�
   <li>Express</li>
   <li>dotenv</li>
 </ul>
+<h3>Endpoints</h3>
+<b>Clientes</b>
+<ul>
+  <li>POST /clientes: Cadastra um novo cliente.</li>
+  <li>GET /clientes: Lista todos os clientes.</li>
+</ul>
+<b>Cheques</b>
+<ul>
+  <li>POST /cheques: Cadastra um novo cheque.</li>
+  <li>GET /cheques: Lista todos os cheques cadastrados.
+  <li>DELETE /cheques/:id: Remove um</li>
+</li>
+</ul>
+<b>Cálculos</b>
+<ul>
+  <li>POST /calculos: Salva um novo cálculo de juros.</li>
+</ul>
+<b>Dashboard</b>
+<ul>
+<li>GET /dashboard/resumo: Exibe o resumo dos cheques.</li>
+</ul>
+<h3>Estrutura do Banco de Dados</h3>
+<b>Tabela clientes</b>
+<br>
+<table>
+  <tr>
+    <th>Campo</th>
+    <th>Tipo</th>
+    <th>Descrição</th>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>INTEGER</td>
+    <td>Chave primária</td>
+  </tr>
+  <tr>
+    <td>nome</td>
+    <td>STRING</td>
+    <td>Nome do cliente</td>
+  </tr>
+  <tr>
+    <td>email</td>
+    <td>STRING</td>
+    <td>E-mail do cliente (único)</td>
+  </tr>
+  <tr>
+    <td>telefone</td>
+    <td>STRING</td>
+    <td>Telefone do cliente</td>
+  </tr>
+</table>
+<b>Tabela cheques</b>
+<br>
+<table>
+  <tr>
+    <th>Campo</th>
+    <th>Tipo</th>
+    <th>Descrição</th>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>INTEGER</td>
+    <td>Chave primária</td>
+  </tr>
+  <tr>
+    <td>numero</td>
+    <td>STRING</td>
+    <td>Número do cheque</td>
+  </tr>
+  <tr>
+    <td>valor</td>
+    <td>FLOAT</td>
+    <td>Valor do cheque</td>
+  </tr>
+  <tr>
+    <td>vencimento</td>
+    <td>DATE</td>
+    <td>Data de vencimento do cheque</td>
+  </tr>
+  <tr>
+    <td>foto</td>
+    <td>STRING</td>
+    <td>Caminho ou URL da foto</td>
+  </tr>
+    <tr>
+    <td>clienteId</td>
+    <td>INTEGER</td>
+    <td>Chave estrangeira (Cliente)</td>
+  </tr>
+</table>
+
+<b>Tabela calculos</b>
+<br>
+<table>
+  <tr>
+    <th>Campo</th>
+    <th>Tipo</th>
+    <th>Descrição</th>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>INTEGER</td>
+    <td>Chave primária</td>
+  </tr>
+  <tr>
+    <td>dataCheque</td>
+    <td>DATE</td>
+    <td>Data de emissão do cheque</td>
+  </tr>
+  <tr>
+    <td>dataVencimento</td>
+    <td>DATE</td>
+    <td>Data de vencimento do cheque</td>
+  </tr>
+  <tr>
+    <td>valorCheque</td>
+    <td>FLOAT</td>
+    <td>Valor do cheque</td>
+  </tr>
+  <tr>
+    <td>percentualJuros</td>
+    <td>FLOAT</td>
+    <td>Percentual de juros aplicado</td>
+  </tr>
+  <tr>
+    <td>valorJuros</td>
+    <td>FLOAT</td>
+    <td>Valor calculado de juros</td>
+  </tr>
+  <tr>
+    <td>valorLiquido</td>
+    <td>FLOAT</td>
+    <td>Valor líquido após cálculo</td>
+  </tr>
+</table>
+
+<br>
+<h3>Contribuição</h3>
+Contribuições são bem-vindas! Sinta-se à vontade para abrir issues e pull requests com sugestões de melhorias ou correções.
